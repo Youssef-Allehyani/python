@@ -68,6 +68,20 @@ class Sort:
 
             random.shuffle(values)
         return values 
+#---------------//selection sort\\--------------------------------------  
+    def selection_sort(listed):
+        sort_list =[]
+        for i in range(0,len(listed)) :
+            index_to_move = Sort.index_of_min(listed)
+            sort_list.append(listed.pop(index_to_move))
+        return sort_list
+    def index_of_min(listed):
+        Minemum = 0
+        for n in range(1,len(listed)):
+            if listed[n] < listed[Minemum]:
+                Minemum = n
+        return Minemum
+
 
 
 

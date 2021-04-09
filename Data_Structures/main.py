@@ -62,6 +62,11 @@ list1 = load_numbers("Data_Structures/Files/numers.txt")
 StartTime = time.perf_counter_ns()
 sorted_bogo = Sort.bogo_sort(list1)
 EndTime = time.perf_counter_ns()
-print(f"sort_list:{sorted_bogo} \n time of monitor: {(EndTime-StartTime)} ")
-
-
+print(f"sort_list:{sorted_bogo} \ntime of monitor: {(EndTime-StartTime)} ")
+#------------------// selection sort \\-------------------------------------- 
+print("\n-----------// selection sort \\\\ ----------------")
+list2 = load_numbers("Data_Structures/Files/numers.txt")
+StartTime = time.perf_counter_ns()
+sorted_selection = Sort.selection_sort(list2)
+EndTime = time.perf_counter_ns()
+print(f"sort_list:{sorted_selection} \ntime of monitor: {(EndTime-StartTime)} ")
