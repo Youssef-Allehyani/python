@@ -1,4 +1,7 @@
 from linked_list import Linked_list
+import sys
+import random
+from load import load_numbers
 class Sort:
     def merge_sort(List):
 
@@ -12,8 +15,6 @@ class Sort:
         right = Sort.merge_sort(right_half)
     
         return Sort.merge(left,right)
-
- 
     def split(List):
 
 
@@ -26,7 +27,11 @@ class Sort:
 
         return left,right
 
-
+    
+        while not is_sorted(values):
+            random.shuffle(values)
+            
+        return values 
     def merge(left,right):
 
         new_list = []
@@ -52,6 +57,20 @@ class Sort:
         if len(List) <= 1:
             return True
         return List[0] <= List[1] and  Sort.verify_sort(List[1:])
+#------------------// bogo sort \\-------------------------------------
+    def is_sorted(values):
+        for index in range(len(values)-1):
+            if values[index] > values[index+1]:
+                return False
+        return True   
+    def bogo_sort(values):
+        while not Sort.is_sorted(values):
+
+            random.shuffle(values)
+        return values 
+
+
+
 class Linked_list_sortition:
     def sort_linked_list(linked_list):
         if   linked_list.size() == 1 :
@@ -131,18 +150,8 @@ class Linked_list_sortition:
         return merge
 
 
-l = Linked_list()
-l.add(20)
-l.add(30)
-l.add(10)
-l.add(5)
-l.add(25)
-l.add(40)
 
-print(l)
 
-sorted_link_list = Linked_list_sortition.sort_linked_list(l)
-print ( sorted_link_list)
 
 
 
