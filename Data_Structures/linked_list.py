@@ -72,7 +72,18 @@ class Linked_list:
             else:
                 previons = current
                 current = current.next_Node     
-        return current        
+        return current   
+    def node_at_index(self,index):       
+        if index ==  0 :
+            return self.head
+        else:
+            current = self.head
+            position = 0
+
+            while position < index :
+                current = current.next_Node  
+                position +=1
+        return current     
 
     def __repr__(self):
         Nodes = []
@@ -95,20 +106,20 @@ class Linked_list:
 
 
 
-N1 =Node(10)
-N2 = Node(20)
-N1.next_Node = N2
-l1 = Linked_list()
-l1.head = N1
-l1.add(3)
-l1.add(80)
-l1.add(90)
+# N1 =Node(10)
+# N2 = Node(20)
+# N1.next_Node = N2
+# l1 = Linked_list()
+# l1.head = N1
+# l1.add(3)
+# l1.add(80)
+# l1.add(90)
 
+# # print(l1.head)
+# print(l1)
+# l1.insert(76,3)
+# print(l1)
+# l1.remove(3)
+# print(l1)
+# l1.insert(3,2)
 # print(l1.head)
-print(l1)
-l1.insert(76,3)
-print(l1)
-l1.remove(3)
-print(l1)
-l1.insert(3,2)
-print(l1)
