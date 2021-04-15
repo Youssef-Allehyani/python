@@ -3,6 +3,7 @@ import sys
 import random
 from load import load_numbers
 class Sort:
+#-------------------//merge sort for list\\--------------------------------
     def merge_sort(List):
 
         if len(List) <= 1:
@@ -57,6 +58,29 @@ class Sort:
         if len(List) <= 1:
             return True
         return List[0] <= List[1] and  Sort.verify_sort(List[1:])
+# ----------------// improve merge sort \\-----------------------------
+    def improve_merge_sort(List):
+        if len(List) <= 1 :
+            return List
+        mid_point = len(List)//2    
+        left_half = Sort.improve_merge_sort(List[:mid_point])
+        right_half = Sort.improve_merge_sort(List[mid_point:])   
+        sorted_list = list()
+        index_left = 0
+        index_right = 0 
+        while index_left < len(left_half) and index_right < len(right_half):
+            if left_half[index_left] < right_half[index_right]:
+              
+                sorted_list.append(left_half[index_left])
+                index_left +=1
+            else:
+             
+                sorted_list.append(right_half[index_right])
+                index_right +=1
+        sorted_list += left_half[index_left:]
+        sorted_list+= right_half[index_right:]
+        return sorted_list        
+
 #------------------// bogo sort \\-------------------------------------
     def is_sorted(values):
         for index in range(len(values)-1):
@@ -68,7 +92,7 @@ class Sort:
 
             random.shuffle(values)
         return values 
-#---------------//selection sort\\--------------------------------------  
+#-----------------//selection sort\\--------------------------------------  
     def selection_sort(listed):
         sort_list =[]
         for i in range(0,len(listed)) :
@@ -81,6 +105,23 @@ class Sort:
             if listed[n] < listed[Minemum]:
                 Minemum = n
         return Minemum
+# ---------------//quick sort \\--------------------------------------------
+    def quick_sort(numbers):
+        if len(numbers) <=1:
+   
+            return numbers
+        less_privot = []
+        greateer_then_privot = []    
+        privot = numbers[0]
+
+        
+        for value in numbers[1:]:
+            if value <= privot:
+                less_privot.append(value)
+            else:
+                greateer_then_privot.append(value)
+
+        return Sort.quick_sort(less_privot) + [privot] + Sort.quick_sort(greateer_then_privot) 
 
 
 
@@ -166,8 +207,9 @@ class Linked_list_sortition:
 
 
 
+# alist = [59,80,34,2,32,56,32,53]
 
-
+# print(Sort.imrove_merge_sort(alist))
 
 
 
