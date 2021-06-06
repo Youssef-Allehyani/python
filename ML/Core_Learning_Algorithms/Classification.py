@@ -25,10 +25,9 @@ print(train.head())
 
 
 def input_fn(features, labels, training=True, batch_size=256):
-    # Convert the inputs to a Dataset.
+
     dataset = tf.data.Dataset.from_tensor_slices((dict(features), labels))
 
-    # Shuffle and repeat if you are in training mode.
     if training:
         dataset = dataset.shuffle(1000).repeat()
 
@@ -81,6 +80,5 @@ for prod_ict in predictions:
     probability = prod_ict["probabilities"][0]
 
 probability = probability*100
-
 print('Prediction is "{}" ({:.1f}%)'.format(
     SPECIES[classid], probability))
